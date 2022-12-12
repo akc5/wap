@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "tlsclient.h"
 
 #define IP4LEN 16
 
@@ -54,15 +55,21 @@ static int tcp_connect(ip4sock_t *s)
 	}
 	struct sockaddr_in server = {0};
 	socklen_t slen = sizeof(server);
+
 	server.sin_family = s->type;
 	server.sin_port = htons(s->port);
 	server.sin_addr.s_addr = inet_addr(s->ip);
-	if (connect(s->fd, (struct sockaddr *)&server, slen) < 0)
-	{
+
+	if (connect(s->fd, (struct sockaddr *)&server, slen) < 0) {
 		perror("tcp_connect");
 		return 1;
 	}
-	close(s->fd);
+	return 0;
+}
+
+static int tls_client_hello(ip4sock_t *s, cl_hello_t *ch)
+{
+	write(s->fd, ch, sizeof(*ch));
 	return 0;
 }
 
@@ -80,6 +87,18 @@ int main(void)
 	printf("Socket initialized.\n");
 	if (tcp_connect(&tcpsock)) {
 		printf("Failed to connect");
+		return 1;
+	}
+	cl_hello_t ch = {0};
+	ch.protover = 0x0303;
+	ch.lsid = 0;
+	ch.cs = 0x1301;
+	ch.lcm = 0;
+	ch.ext[0].type = 43;
+	ch.ext[0].data = 0x0303;
+	if (tls_client_hello(&tcpsock, &ch)) 
+	{
+		printf("Client Hello error\n");	
 		return 1;
 	}
 	return 0;
