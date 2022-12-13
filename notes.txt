@@ -1,0 +1,69 @@
+Compilation Starts =========================================================== :
+C source -> two data processing environments (translation + execution)
+source, headers -> preprocessing translation unit -> translation unit
+
+Preprocessing translation unit: source + all headers included
+preprocessing translation unit -> preprocessing -> translation unit.
+
+Preprocessing:
+Instances like '\\n' are deleted.
+Non newline whitespace characters are left to the implentation
+A source line ending in a '\n' is spliced with the next one
+Each comment is replaced by a 'space' character
+
+excute preprocessor directives.
+
+Abstractions:
+Device drivers: abstract I/o devices by representing them as byte streams.
+Virtual memory: an abstraction for physical memories found on the system.
+Instruction set: abstracts the physical cpu 
+
+Memory:
+more predicatable program: smoother caching
+
+Virtual memory : solves the problem of memory requirement and the actual memory present on the device.
+Operating systems set the virtual memory limit, 2^32 or 2^64. Its independent of the actual physical memory present.
+
+Processing Power - Tightly associated with the number of available transistors.
+
+Compilation Ends ===
+
+
+
+ISO/IEC C Starts =============================
+Environments: Translation, Execution
+Source files are also called preprocessing files.
+Preprocessing Translation unit - A source file with all includes using #include 
+Translation Unit - A PTU after preprocessing id done. 
+Translation Units are linked to produce an executable program
+(TU1, TU2, ...) -> a.out
+
+TRANSLATION PHASES -
+
+EXECUTION ENVIRONMENTS - Freestanding and Hosted 
+Program startup happens when a designated C function is called by the EE.
+All static objects are initialized before program startup. How it happens is unspecified and hence implementation defined.
+
+Program termination -
+Default return value is 0.
+If the return type is not compatible with int then the value returned to the host environment is unspecified.
+
+Program execution - 
+
+
+ISO/IEC C Ends ===============================
+
+
+
+
+DM Starts ====================================
+LOGIC AND PROOFS:
+Application of logic to computer science : design of computer circuits, construction of computer programs, verification of computer programs, etc.
+Proposition: a declarative sentence, either true or false but not both
+
+DM Ends   ====================================
+
+
+Reads:
+1. processor-memory gap
+=======================================================================
