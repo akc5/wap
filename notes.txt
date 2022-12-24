@@ -63,6 +63,11 @@ Proposition: a declarative sentence, either true or false but not both
 
 DM Ends   ====================================
 
+Digital circuit design Starts ========================
+
+Digital circuits types = logic, memory
+
+Digital circuit design Ends =========================
 
 Reads:
 1. processor-memory gap

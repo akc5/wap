@@ -91,11 +91,13 @@ int main(void)
 	}
 	cl_hello_t ch = {0};
 	ch.protover = 0x0303;
+#if 0
 	ch.lsid = 0;
 	ch.cs = 0x1301;
 	ch.lcm = 0;
 	ch.ext[0].type = 43;
 	ch.ext[0].data = 0x0303;
+#endif
 	if (tls_client_hello(&tcpsock, &ch)) 
 	{
 		printf("Client Hello error\n");	
