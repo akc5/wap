@@ -69,6 +69,25 @@ Digital circuits types = logic, memory
 
 Digital circuit design Ends =========================
 
+
+AAA starts ====================================
+AAA defines a framework by which:
+	1. Users are authenticated to a network.
+	2. With authorization to network/services.
+	3. While accounting their network activity.
+
+802: IEEE standard for networking protocols.
+802.1: General concepts of LAN/WAN, security, etc.
+802.11: Wireless LAN or WLAN 
+802.1x: IEEE standard for LAN(s). Its a port based Network Access Control (NAC). It requires the supplicant to use an encapsulation protocol like EAP.
+
+The encapsulation protocol, like EAP, defines the format of messages for three parties:
+	1. Supplicant: The device that requests access.
+	2. Authenticator: Device responsible to initiating the auth process.
+	3. Authentication Server: Device that authenticates the supplicant.
+AAA ends ======================================
+
+
 Reads:
 1. processor-memory gap
 =======================================================================
